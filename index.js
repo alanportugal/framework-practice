@@ -27,7 +27,22 @@ var app = new Vue({
       console.log("test was called")
     },
     filter: function(){
-      console.log("filter was called")
+      // if checkbox is checked
+      if(document.getElementById("icecream").checked){
+        // set this.alligators to only likesIceCream === true
+        this.alligators = gators.filter(g => g.likesIceCream)
+      } else {
+        // all alligators
+        this.alligators = gators
+      }
+    },
+    sortAsc: function(){
+      console.log("sortAsc called")
+      this.alligators = gators.sort(function(a, b){return a.weight - b.weight})
+    },
+    sortDesc: function(){
+      console.log("sortDesc called")
+      this.alligators = gators.sort(function(a, b){return b.weight - a.weight})
     }
   }
 })
